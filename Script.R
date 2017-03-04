@@ -3,12 +3,12 @@ require(tm)
 require(wordcloud)
 require(SnowballC)
 
-setwd("D:/Data/Dropbox/Dokumente/Unidokumente/Year 3/Trimester 8/BIM/bonus assignment")
+setwd("")
 
-ck <- "M1oBgJRaAD9RP2yv9w8AfKpWS"
-cs <- "IPP29zqqouL54ivYFnocd8BYSjghAXM03605HZw1yIQTdZ6gFF"
-at <- "43402714-OoFnBMF5LJrVQ2Y2VmAFaqaXsWzNUJC3lGsRCAwMk"
-as <- "m5mglgRJWSO1RYa7Ar3W0LJIB6aBacCXAifynsGE5aQWo"
+ck <- ""
+cs <- ""
+at <- ""
+as <- ""
 
 setup_twitter_oauth(ck, cs, access_token = at, access_secret = as)
 
