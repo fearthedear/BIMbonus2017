@@ -12,7 +12,7 @@ as <- ""
 
 setup_twitter_oauth(ck, cs, access_token = at, access_secret = as)
 
-t_stream <- searchTwitter('blackpeopletwitter', resultType="recent", n=500)
+t_stream <- searchTwitter('', resultType="recent", n=500)
 
 df <- do.call("rbind", lapply(t_stream, as.data.frame))
 
