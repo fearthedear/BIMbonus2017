@@ -3,8 +3,10 @@ require(tm)
 require(wordcloud)
 require(SnowballC)
 
+#set your working directory
 setwd("")
 
+#add twitter api tokens here
 ck <- ""
 cs <- ""
 at <- ""
@@ -12,7 +14,7 @@ as <- ""
 
 setup_twitter_oauth(ck, cs, access_token = at, access_secret = as)
 
-t_stream <- searchTwitter('', resultType="recent", n=500)
+t_stream <- searchTwitter('your_keyword', resultType="recent", n=500)
 
 df <- do.call("rbind", lapply(t_stream, as.data.frame))
 
@@ -32,13 +34,15 @@ write.table(my_columns, "tweets.csv", row.names = FALSE, col.names = TRUE, sep =
 
 my_columns <- read.csv("tweets.csv", sep=";")
 
+result_length <- length(df$text)
+
 # R Task 1 Begin (Create list that has the number of characters in each tweet as elements (research function "nchar"), 
 # then add the list as a column to the data frame and save the data frame to a new csv file)
 
 characters <- list()
 
 i<-1;
-while(i<501) {
+while(i<result_length+1) {
   characters[[i]] <- nchar(toString(my_columns$text[[i]]));
   i <- i+1;
 }
@@ -62,7 +66,7 @@ temp_df <- df
 even_odd_list <- list()
 
 j<-1;
-while(j<501) {
+while(j<result_length+1) {
   # only taking last digits of ID to check if its odd for efficiency
   temp <- substr(df$id[j], nchar(df$id[j])-2, nchar(df$id[j]))
   if ( as.numeric(temp) %% 2 == 0) {
